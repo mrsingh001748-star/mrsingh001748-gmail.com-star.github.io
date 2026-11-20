@@ -1,0 +1,1041 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Maurya Cyber Cafe ADMIN</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap">
+<style id="css">
+:root{--bg:#f3f5f9;--card:#fff;--fg:#1a2233;--muted:#5b6784;--line:#e6ebf3;--brand:#a31d42;--head:#0b4aa8;--gold:#f5a623;--soft:#e3ebfa;--soft-fg:#0b2a66}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1424;--card:#172038;--fg:#e8edf8;--muted:#9aa8c6;--line:#26314d;--brand:#6e1230;--head:#7fb0ff;--gold:#f5a623;--soft:#1d2a4a;--soft-fg:#cfdcff;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0e1424;--card:#172038;--fg:#e8edf8;--muted:#9aa8c6;--line:#26314d;--brand:#6e1230;--head:#7fb0ff;--gold:#f5a623;--soft:#1d2a4a;--soft-fg:#cfdcff;color-scheme:dark}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:Inter,'Noto Sans Devanagari',system-ui,sans-serif;font-size:15px}
+.wrap{max-width:1200px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+header{background:var(--brand);border-bottom:3px solid var(--gold)}
+.top{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding-block:14px}
+.logo{display:flex;align-items:center;gap:12px}
+.mark{width:44px;height:44px;border-radius:10px;background:var(--gold);color:#0b2a66;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:18px}
+.name{color:#fff;font-size:20px;font-weight:700;line-height:1.1}
+.tag{color:#ffd98a;font-size:12px;font-weight:600;margin-top:2px}
+nav{display:flex;flex-wrap:wrap;gap:8px}
+nav a{color:#fff;text-decoration:none;font-size:14px;font-weight:600;padding:10px 14px;border-radius:8px;background:rgba(255,255,255,.12)}
+nav a:focus-visible,input:focus-visible,.more a:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+main{display:flex;flex-direction:column;gap:24px;padding-block:24px 40px}
+.more{background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.more h2{margin:0;background:var(--soft);color:var(--soft-fg);padding:14px 20px;font-size:18px}
+.more a{display:flex;justify-content:space-between;padding:16px 20px;color:var(--fg);text-decoration:none;font-size:17px;border-top:1px solid var(--line)}
+.search{display:flex;width:100%;max-width:760px;margin:0 auto;background:var(--card);border:1px solid var(--line);border-radius:999px;overflow:hidden}
+.search input{flex:1;min-width:0;border:0;background:transparent;color:var(--fg);padding:16px 22px;font:inherit;font-size:16px}
+.search span{background:var(--brand);color:#fff;padding:0 22px;display:flex;align-items:center;font-weight:600}
+.search button{background:var(--brand);color:#fff;border:0;padding:0 22px;font:inherit;font-weight:600;cursor:pointer;min-height:50px}
+.search button:focus-visible{outline:3px solid var(--gold);outline-offset:-3px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,460px),1fr));gap:24px;align-items:start}
+.box{background:var(--card);border:1px solid var(--line);border-radius:10px;overflow:hidden;min-width:0;scroll-margin-top:12px}
+.box h3{margin:0;background:var(--head);color:#fff;padding:14px 16px;font-size:17px;display:flex;justify-content:space-between;gap:12px;align-items:center}
+.box h3 small{background:rgba(255,255,255,.2);padding:5px 10px;border-radius:6px;font-size:12px;font-weight:600}
+.row{display:flex;justify-content:space-between;gap:12px;padding:14px 16px;border-top:1px solid var(--line)}
+.row p{margin:0;line-height:1.45;font-weight:500;min-width:0;display:flex;gap:10px}
+.row p::before{content:"";flex:none;width:9px;height:9px;border-radius:50%;background:var(--head);margin-top:7px}
+.row time{flex:none;font-size:12px;color:var(--muted);white-space:nowrap;padding-top:3px;font-variant-numeric:tabular-nums}
+.empty{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:28px 20px;text-align:center;color:var(--muted)}
+.note{font-size:13px;color:var(--muted);text-align:center;line-height:1.6}
+.admin{background:var(--card);border:2px solid var(--gold);border-radius:10px;padding:18px 16px;display:flex;flex-direction:column;gap:12px}
+.admin h2{margin:0;font-size:18px}
+.admin form{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px}
+.admin .full{grid-column:1/-1}
+.admin label{display:flex;flex-direction:column;gap:4px;font-size:13px;font-weight:600;color:var(--muted)}
+.admin textarea{font:inherit;font-size:16px;padding:12px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--fg);min-width:0;resize:vertical}
+.contents{display:contents}
+.detail{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:20px 18px;display:flex;flex-direction:column;gap:14px;max-width:820px;width:100%;margin:0 auto}
+.detail .back{color:var(--head);font-weight:600;text-decoration:none;align-self:flex-start;padding:8px 0}
+.detail .cat{font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.detail h1{margin:0;font-size:24px;line-height:1.3;text-wrap:balance}
+.detail .when{font-size:13px;color:var(--muted)}
+.detail .body{white-space:pre-wrap;line-height:1.7;font-size:16px}
+.detail .acts{display:flex;flex-wrap:wrap;gap:10px}
+.detail .acts a{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 22px;border-radius:8px;font-weight:700;text-decoration:none}
+.detail .go{background:#0a7a3d;color:#fff}
+.detail .pdf{background:var(--soft);color:var(--soft-fg)}
+.detail .help{background:var(--soft);color:var(--soft-fg);border-radius:8px;padding:12px 14px;font-size:14px;line-height:1.6}
+.admin input,.admin select{font:inherit;font-size:16px;padding:12px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--fg);min-width:0}
+.admin button{font:inherit;font-weight:700;border:0;border-radius:8px;padding:13px 20px;background:var(--brand);color:#fff;cursor:pointer;min-height:44px}
+.admin button:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.admin .msg{font-size:13px;color:var(--muted);margin:0}
+.row a{color:inherit}
+.quick{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:10px}
+.quick a,.quick span.qb{position:relative;display:flex;align-items:center;justify-content:center;text-align:center;min-height:62px;padding:10px 12px;border-radius:4px;color:#fff;font-weight:700;font-size:16px;line-height:1.3;text-decoration:none;text-shadow:0 1px 1px rgba(0,0,0,.25)}
+.quick a:hover{filter:brightness(1.08)}
+.quick a:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.qdel{position:absolute;top:4px;right:4px;border:0;border-radius:4px;background:rgba(0,0,0,.55);color:#fff;font:inherit;font-size:11px;font-weight:600;padding:4px 8px;cursor:pointer;min-height:26px}
+.qform{border-top:1px dashed var(--line);padding-top:14px;margin-top:4px}
+.qform h3{margin:0 0 10px;font-size:16px}
+.admin input[type=color]{padding:2px;height:46px}
+.del{flex:none;align-self:flex-start;border:1px solid var(--line);background:transparent;color:#c0392b;border-radius:6px;font:inherit;font-size:12px;font-weight:600;padding:6px 10px;cursor:pointer;min-height:32px}
+.new{background:var(--gold);color:#0b2a66;border-radius:4px;font-size:10px;font-weight:700;padding:2px 6px;margin-left:6px;vertical-align:middle}
+.login{position:fixed;inset:0;z-index:50;overflow:hidden;background:#fff;display:flex;align-items:center;justify-content:center;padding:max(16px,env(safe-area-inset-top,0px)) max(16px,env(safe-area-inset-right,0px)) max(16px,env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));color:#1a2233;font-family:Inter,'Noto Sans Devanagari',system-ui,sans-serif}
+.login .sh{position:absolute;border-radius:50%}
+.login .s1{width:150vmax;height:150vmax;left:-95vmax;top:-30vmax;background:#3a5ba0}
+.login .s2{width:150vmax;height:150vmax;left:-55vmax;top:22vmax;background:#a98b4a}
+.login .s3{width:90vmax;height:90vmax;right:-40vmax;bottom:-55vmax;background:#1d2330}
+.login .card{position:relative;width:100%;max-width:340px;background:#fff;border-radius:8px;box-shadow:0 12px 40px rgba(0,0,0,.28);padding:22px 22px 18px;display:flex;flex-direction:column;gap:12px;max-height:100%;overflow:auto}
+.login .brand{display:flex;align-items:center;gap:10px}
+.login .brand .mark{width:34px;height:34px;font-size:14px;border-radius:8px}
+.login .brand b{font-size:16px;color:#1a2233}
+.login h2{margin:4px 0 0;font-size:16px;color:#1a2233}
+.login p.help{margin:0;font-size:12px;color:#5b6784;line-height:1.5}
+.login label{display:flex;flex-direction:column;gap:4px;font-size:12px;font-weight:600;color:#1a2233}
+.login input[type=text],.login input[type=password]{font:inherit;font-size:16px;padding:10px 12px;border:1px solid #c9d3e6;border-radius:4px;background:#fff;color:#1a2233;min-width:0;width:100%}
+.login input:focus-visible,.login button:focus-visible{outline:3px solid #a98b4a;outline-offset:2px}
+.login .pw{display:flex;gap:6px}
+.login .show{flex:none;border:1px solid #c9d3e6;background:#f3f5f9;color:#1a2233;border-radius:4px;font:inherit;font-size:12px;font-weight:600;padding:0 10px;cursor:pointer;min-height:44px}
+.login .rem{flex-direction:row;align-items:center;gap:8px;font-weight:500}
+.login .go{border:0;border-radius:4px;background:#2c4a8a;color:#fff;font:inherit;font-weight:700;letter-spacing:.08em;padding:13px;cursor:pointer;min-height:46px}
+.login .msg{margin:0;font-size:12px;color:#b3261e;min-height:16px}
+.login .skip{align-self:center;background:none;border:0;color:#2c4a8a;font:inherit;font-size:12px;text-decoration:underline;cursor:pointer;padding:6px;min-height:32px}
+.mark img{width:100%;height:100%;object-fit:cover;border-radius:inherit;display:block}
+.mark{overflow:hidden}
+.logoform{display:flex;flex-wrap:wrap;gap:10px;align-items:center;border-top:1px dashed var(--line);padding-top:14px}
+.logoform label{font-size:13px;font-weight:600;color:var(--muted);display:flex;flex-direction:column;gap:4px;flex:1 1 220px;min-width:0}
+.logoform input[type=file]{font:inherit;font-size:14px;color:var(--fg);min-width:0}
+.settings{border-top:1px dashed var(--line);padding-top:10px;display:flex;flex-direction:column;gap:14px}
+.settings summary{font-weight:700;font-size:16px;cursor:pointer;min-height:44px;display:flex;align-items:center}
+.settings[open] summary{margin-bottom:4px}
+.contact{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 20px;text-align:center;display:flex;flex-direction:column;gap:6px}
+.contact h2{margin:0;font-size:17px}
+.contact p{margin:0;font-size:14px;color:var(--muted);line-height:1.5}
+.contact a{color:var(--head);font-weight:600}
+.admin .settings button{margin-right:6px}
+.tools{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px;display:flex;flex-direction:column;gap:12px}
+.tools>h2{margin:0;font-size:18px}
+.toolgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:12px;align-items:start}
+.tool{border:1px solid var(--line);border-radius:8px;background:var(--bg);min-width:0}
+.tool summary{cursor:pointer;font-weight:700;padding:14px;min-height:48px;display:flex;align-items:center}
+.tool form,.tool .tbody{padding:0 14px 14px;display:flex;flex-direction:column;gap:10px}
+.tool label{display:flex;flex-direction:column;gap:4px;font-size:13px;font-weight:600;color:var(--muted);min-width:0}
+.tool input,.tool select{font:inherit;font-size:16px;padding:10px 12px;border:1px solid var(--line);border-radius:6px;background:var(--card);color:var(--fg);min-width:0;width:100%}
+.tool input[type=file]{padding:8px;font-size:14px}
+.tool .two{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tool button{font:inherit;font-weight:700;border:0;border-radius:6px;padding:12px 16px;background:var(--brand);color:#fff;cursor:pointer;min-height:44px}
+.tool button:focus-visible,.tool summary:focus-visible,.tool input:focus-visible,.tool select:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.tool .tmsg{margin:0;font-size:13px;color:var(--muted);line-height:1.5}
+.tool .res{font-weight:700;font-size:15px;line-height:1.5}
+.tool .prev{max-width:100%;max-height:260px;border:1px solid var(--line);border-radius:6px;align-self:flex-start;background:#fff}
+.logout{font:inherit;font-weight:600;border:1px solid var(--line);border-radius:8px;padding:6px 12px;background:transparent;color:var(--muted);cursor:pointer;min-height:36px;font-size:13px;align-self:flex-start}
+.formbox{background:var(--soft);color:var(--soft-fg);border-radius:8px;padding:14px;display:flex;flex-direction:column;gap:8px}
+.formbox b{font-size:16px}
+.formbox p{margin:0;font-size:14px;line-height:1.6}
+.formbox .acts{display:flex;flex-wrap:wrap;gap:10px}
+.detail .formbox .acts a{min-height:48px;padding:12px 18px}
+.detail .wa{background:#128c4a;color:#fff}
+.detail .srch{background:var(--card);color:var(--fg);border:1px solid var(--line)}
+.formbox .phn{font-weight:600}
+.psec{border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.psec h2{margin:0;background:var(--brand);color:#fff;font-size:16px;padding:9px 12px;text-align:center}
+.psec ul{margin:0;padding:10px 14px 10px 30px;display:flex;flex-direction:column;gap:6px;line-height:1.5;font-size:15px}
+.psec .body{padding:12px;font-size:15px}
+.psec ul.steps{list-style:decimal}
+.pair{display:grid;grid-template-columns:1fr;gap:14px}
+.pair:empty{display:none}
+.pair .psec{min-width:0}
+@media (min-width:600px){.pair{grid-template-columns:1fr 1fr}.pair .psec:only-child{grid-column:1/-1}}
+.ltable{display:grid;grid-template-columns:1fr 1fr}
+.ltable .lc{border-top:1px solid var(--line);padding:12px 10px;text-align:center;display:flex;align-items:center;justify-content:center;font-size:15px;min-height:52px;min-width:0;overflow-wrap:anywhere}
+.ltable .lc:nth-child(odd){border-right:1px solid var(--line)}
+.ltable .lc:nth-child(-n+2){border-top:0}
+.ltable .lab{font-weight:700;color:var(--brand)}
+.ltable .lk{color:var(--head);font-weight:700;text-decoration:underline}
+.ltable .lk.auto{color:var(--muted);font-weight:600}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .ltable .lab{color:#ffb3c7}}
+:root[data-theme="dark"] .ltable .lab{color:#ffb3c7}
+@media (max-width:480px){.row{gap:4px}}
+body{background:var(--bg)}
+.hero{background:var(--brand);color:#fff;text-align:center}
+.hero-in{display:flex;flex-direction:column;align-items:center;gap:8px;padding-block:20px 18px}
+.mark.big{width:96px;height:96px;border-radius:50%;border:3px solid #fff;font-size:34px;flex:none}
+.hero .name{font-size:30px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;line-height:1.15;text-wrap:balance}
+.hero .tag{color:#fff;opacity:.92;font-size:13px;font-weight:600;margin:0}
+.bar{background:#000;position:sticky;top:env(safe-area-inset-top,0px);z-index:5}
+.barin{display:flex;gap:0;overflow-x:auto;white-space:nowrap}
+.barin a{color:#fff;text-decoration:none;font-size:14px;font-weight:600;padding:13px 14px;min-height:44px;display:flex;align-items:center}
+.barin a:hover{background:#222}
+.admintop{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:center;justify-content:space-between}
+.admintop h2{margin:0}
+.admintop .backsite{color:var(--head);font-weight:600;text-decoration:none;padding:8px 0}
+#aStats{margin:0}
+.admin .atabs{display:flex;flex-wrap:wrap;gap:6px}
+.admin .atabs button{background:var(--bg);color:var(--fg);border:1px solid var(--line)}
+.admin .atabs button.on{background:var(--brand);color:#fff;border-color:var(--brand)}
+.myrow{display:flex;flex-wrap:wrap;gap:8px;justify-content:space-between;align-items:center;border:1px solid var(--line);border-radius:8px;padding:10px 12px;margin-bottom:8px}
+.myrow .mt{display:flex;flex-direction:column;gap:2px;min-width:0;flex:1 1 220px}
+.myrow .mt b{font-size:14px;overflow-wrap:anywhere}
+.myrow .mt span{font-size:12px;color:var(--muted)}
+.myrow .mb{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.myrow .mb a{color:var(--head);font-weight:600;font-size:13px;padding:8px}
+.admin .myrow button{padding:8px 12px;min-height:36px;font-size:13px;background:var(--soft);color:var(--soft-fg)}
+.admin .myrow button.mdel{background:transparent;color:#c0392b;border:1px solid var(--line)}
+.barin a.navauth{background:var(--gold);color:#0b2a66;margin:6px 0 6px 8px;border-radius:4px;min-height:32px;padding:0 14px}
+.barin a.navauth:first-of-type{margin-left:auto}
+.barin a.navauth[hidden]+a.navauth:not([hidden]){margin-left:auto}
+.barin a.navauth:hover{background:#ffc04d}
+.barin a:focus-visible{outline:3px solid var(--gold);outline-offset:-3px}
+.intro{display:flex;flex-direction:column;gap:10px;text-align:center;align-items:center}
+.ititle{margin:0;font-family:'Times New Roman',Georgia,serif;font-size:24px;line-height:1.3;color:var(--head);text-wrap:balance}
+.welcome{margin:0;font-size:13px;font-weight:600;color:#c4161c;line-height:1.5}
+.hl{margin:0;font-family:'Times New Roman',Georgia,serif;font-size:14px;font-weight:700;line-height:1.7;max-width:980px}
+.hl a{color:var(--head);text-decoration:none}
+.hl a:hover{text-decoration:underline}
+.hl i{font-style:normal;color:var(--muted);margin:0 4px}
+.grid{grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:18px}
+.box h3{background:var(--brand);border-radius:0;font-size:18px;justify-content:center;text-align:center;padding:10px 12px}
+.box h3 small{display:none}
+.box{border-radius:0;border:1px solid var(--line)}
+.row{display:block;padding:9px 12px}
+.row p{font-size:14px;line-height:1.4}
+.row a{color:var(--head);text-decoration:underline}
+.row time{display:block;padding:2px 0 0 19px;font-size:11px;white-space:normal}
+.row .del{margin-top:6px}
+.more{border-radius:0}
+.more h2{font-size:16px}
+.more a{font-size:15px;padding:13px 18px}
+.quick a,.quick span.qb{border-radius:0}
+.search{border-radius:4px}
+.search span,.search button{border-radius:0}
+@media (max-width:480px){.hero .name{font-size:24px}.ititle{font-size:20px}.row{flex-direction:initial}}
+
+</style>
+<div id="app"></div>
+<script type="text/html" id="markup"><header class="hero"><div class="wrap hero-in">
+<div class="mark big">MC</div>
+<div class="name">Maurya Cyber Cafe</div>
+<div class="tag">फॉर्म, नौकरी, रिज़ल्ट और योजना की ताज़ा जानकारी</div>
+</div></header>
+<div class="bar"><div class="wrap barin" role="navigation" aria-label="Menu">
+<a href="#home">Home</a><a href="#jobs">Latest Job</a><a href="#admit">Admit Card</a><a href="#result">Results</a><a href="#admission">Admission</a><a href="#yojana">Yojana</a><a href="#tools">Tools</a>
+</div></div>
+
+<main class="wrap">
+<article id="detail" class="detail" hidden></article>
+<section id="admin" class="admin" hidden>
+<button type="button" class="logout" id="logout">Logout</button>
+<div class="admintop"><h2>Admin Panel</h2><a href="#home" class="backsite">‹ Site dekhein</a><p class="msg" id="aStats"></p></div>
+<div class="atabs" id="adminTabs" role="tablist"><button type="button" data-t="upd">Naya Update</button><button type="button" data-t="list">Mere Updates</button><button type="button" data-t="btn">Buttons</button><button type="button" data-t="set">Settings</button></div>
+<form id="addForm" data-tab="upd">
+<label for="aSec">Section<select id="aSec"></select></label>
+<label for="aDate">Taareekh<input id="aDate" type="date" required></label>
+<label class="full" for="aText">Title<input id="aText" type="text" maxlength="200" placeholder="Jaise: Group D Result 2026: Score Card dekhein" required></label>
+<label class="full" for="aDates">Important Dates (har line me "naam: taareekh")<textarea id="aDates" rows="4" maxlength="1500" placeholder="Form shuru: 26/10/2026&#10;Aakhri taareekh: 26/11/2026&#10;Fees ki aakhri taareekh: 26/11/2026"></textarea></label>
+<label class="full" for="aFee">Application Fee (har line me "naam: raqam")<textarea id="aFee" rows="3" maxlength="1000" placeholder="General / OBC: 100&#10;SC / ST: 0&#10;Payment: Online"></textarea></label>
+<label class="full" for="aAge">Age Limit (har line me "naam: umar")<textarea id="aAge" rows="3" maxlength="1000" placeholder="Kam se kam umar: 21 saal&#10;Zyada se zyada umar: 40 saal&#10;Umar ginti ki taareekh: 01/07/2026"></textarea></label>
+<label class="full" for="aDesc">Vacancy, yogyata aur kaise bharein (poori jaankari)<textarea id="aDesc" rows="6" maxlength="4000" placeholder="Har baat nayi line me likhein"></textarea></label>
+<label for="aUrl">Apply Online link<input id="aUrl" type="url" placeholder="https://..."></label>
+<label for="aVideo">Form kaise bharein (video) link<input id="aVideo" type="url" placeholder="https://..."></label>
+<label for="aNotif">Notification / PDF link<input id="aNotif" type="url" placeholder="https://..."></label>
+<label for="aSite">Official website link<input id="aSite" type="url" placeholder="https://..."></label>
+<p class="msg full">Jo link nahi daaloge, uski jagah "Click Here" ka button apne aap ban jaayega, jo Google ya YouTube par khojega.</p>
+<div class="full"><button type="submit" id="aBtn">Update jodein</button> <button type="button" id="aCancel" hidden>Badlav rehne dein</button></div>
+<p class="msg full" id="aMsg">Jo update aap yahan jodenge wo sabko sabse upar dikhega. Save dabate hi page dobara khulega aur sabko naya update dikhega. Ye panel sirf aapko dikhta hai.</p>
+</form>
+<section id="myUpd" data-tab="list"><div id="myList"></div></section>
+<div class="qform" data-tab="btn">
+<h3>Rangeen quick button jodein</h3>
+<form id="qForm">
+<label class="full" for="qText">Button ka naam<input id="qText" type="text" maxlength="80" placeholder="Jaise: UP TGT Teacher 2026 Apply Online" required></label>
+<label for="qUrl">Link (zaroori nahi)<input id="qUrl" type="url" placeholder="https://..."></label>
+<label for="qColor">Rang<input id="qColor" type="color" value="#1a6fd6"></label>
+<div class="full"><button type="submit">Button jodein</button></div>
+<p class="msg full" id="qMsg">Neeche list se button hata sakte ho.</p>
+</form>
+<div id="myQuick"></div>
+</div>
+
+<details class="settings" id="settings" data-tab="set" open>
+<summary>Settings</summary>
+<form id="setForm">
+<label for="sName">Site ka naam<input id="sName" type="text" maxlength="60" placeholder="Maurya Cyber Cafe"></label>
+<label for="sTag">Naam ke neeche ki line<input id="sTag" type="text" maxlength="120"></label>
+<label for="sPhone">Phone / WhatsApp number<input id="sPhone" type="text" inputmode="tel" maxlength="20" placeholder="98XXXXXXXX"></label>
+<label for="sEmail">Gmail / Email<input id="sEmail" type="email" maxlength="80" placeholder="naam@gmail.com"></label>
+<label for="sInsta">Instagram ID<input id="sInsta" type="text" maxlength="100" placeholder="@aapka_id ya poora link"></label>
+<label for="sYT">YouTube channel<input id="sYT" type="text" maxlength="150" placeholder="@channel ya poora link"></label>
+<label for="sColor">Upar ki patti ka rang<input id="sColor" type="color" value="#a31d42"></label>
+<label class="full" for="sAddr">Cafe ka pata<input id="sAddr" type="text" maxlength="200" placeholder="Gaon / mohalla, shahar, zila"></label>
+<div class="full"><button type="submit">Settings save karein</button> <button type="button" id="setReset">Rang aur naam pehle jaisa karein</button></div>
+<p class="msg full" id="setMsg">Phone, Gmail, Instagram, YouTube aur pata site ke neeche sabko dikhega.</p>
+</form>
+<form class="logoform" id="logoForm">
+<label for="logoFile">Site ki photo / logo (upar kone me dikhegi)<input id="logoFile" type="file" accept="image/*"></label>
+<button type="submit">Photo lagayein</button>
+<button type="button" id="logoDel" hidden>Photo hatayein</button>
+<p class="msg full" id="logoMsg" style="flex-basis:100%">Chhoti, saaf, chauras photo sabse achhi dikhti hai.</p>
+</form>
+<form id="pinForm">
+<h3 class="full" style="margin:0;font-size:16px">2-step verification code (password ke baad)</h3>
+<label for="pnPw">Abhi ka password<input id="pnPw" type="password" autocomplete="current-password"></label>
+<label for="pnCode">Naya 6 ank ka code<input id="pnCode" type="password" inputmode="numeric" maxlength="6" autocomplete="off"></label>
+<label for="pnCode2">Code dobara<input id="pnCode2" type="password" inputmode="numeric" maxlength="6" autocomplete="off"></label>
+<div class="full"><button type="submit">Code lagayein</button> <button type="button" id="pinOff">Code hatayein</button></div>
+<p class="msg full" id="pinMsg">Code lagane ke baad login me password ke baad ye 6 ank ka code bhi poochha jayega. Ye code sirf ek extra taala hai, SMS wala OTP nahi.</p>
+</form>
+<form id="pwForm">
+<h3 class="full" style="margin:0;font-size:16px">ID aur password badlein</h3>
+<label for="cpPw">Abhi ka password<input id="cpPw" type="password" autocomplete="current-password"></label>
+<label for="nId">Naya ID<input id="nId" type="text" autocomplete="username"></label>
+<label for="nPw">Naya password (kam se kam 6 akshar)<input id="nPw" type="password" autocomplete="new-password"></label>
+<label for="nPw2">Naya password dobara<input id="nPw2" type="password" autocomplete="new-password"></label>
+<div class="full"><button type="submit">ID aur password badlein</button></div>
+<p class="msg full" id="pwMsg"></p>
+</form>
+</details>
+</section>
+<div id="home" class="contents">
+<section id="intro" class="intro">
+<h1 class="ititle"><span class="sname">Maurya Cyber Cafe</span> 2026 – Latest Sarkari Jobs, Result, Admit Card</h1>
+<p class="welcome">Welcome to <b class="sname">Maurya Cyber Cafe</b> | Online form, result aur sarkari yojana ki sahi jaankari ek jagah</p>
+<p class="hl" id="hl"></p>
+</section>
+
+<section id="more" class="more">
+<h2>ज़्यादा जानें</h2>
+<a href="#jobs"><span>सरकारी नौकरी खोज</span><span>›</span></a>
+<a href="#update"><span>ऑनलाइन अपडेट सेवा</span><span>›</span></a>
+<a href="#jobs"><span>नवीनतम नौकरी अलर्ट</span><span>›</span></a>
+</section>
+
+
+<form id="sform" class="search" role="search"><label for="q" hidden>Search</label><input id="q" type="search" placeholder="Search Jobs, Admit Card, Results etc..." autocomplete="off" enterkeyhint="search"><button type="submit">Search</button></form>
+<p id="scount" class="note" hidden></p>
+
+<nav id="quick" class="quick" aria-label="Quick links"></nav>
+
+<section id="tools" class="tools">
+<h2>Free Tools</h2>
+<div class="toolgrid">
+<details class="tool">
+<summary>Photo size chhota karein (KB)</summary>
+<form id="photoForm">
+<label for="pFile">Photo chunein<input id="pFile" type="file" accept="image/*"></label>
+<label for="pPreset">Kis kaam ke liye<select id="pPreset"><option value="p1">Form ki photo 200 x 230</option><option value="p2">Signature 140 x 60</option><option value="p3">Photo 3.5 x 4.5 cm (413 x 531)</option><option value="p4">Apni naap</option></select></label>
+<div class="two"><label for="pW">Chaudai (px)<input id="pW" type="number" inputmode="numeric" min="20" max="4000"></label><label for="pH">Lambai (px)<input id="pH" type="number" inputmode="numeric" min="20" max="4000"></label></div>
+<label for="pKB">Zyada se zyada size (KB)<input id="pKB" type="number" inputmode="numeric" min="5" max="2000" value="50"></label>
+<button type="submit">Taiyar karein</button>
+<p class="tmsg" id="pMsg">Photo aapke phone me hi badalti hai, kahin upload nahi hoti.</p>
+<div id="pOut" hidden><img class="prev" id="pImg" alt="Taiyar photo"><p class="res" id="pInfo"></p><button type="button" id="pSave">Photo save karein</button></div>
+</form>
+</details>
+<details class="tool">
+<summary>Umar ka hisaab (Age Calculator)</summary>
+<div class="tbody">
+<label for="dob">Janm ki taareekh<input id="dob" type="date"></label>
+<label for="ageOn">Kis taareekh tak umar nikalni hai<input id="ageOn" type="date"></label>
+<p class="res" id="ageOut" aria-live="polite"></p>
+<p class="tmsg">Form me umar seema "as on" taareekh tak dekhi jaati hai. Wo taareekh yahan daalein.</p>
+</div>
+</details>
+<details class="tool">
+<summary>Photo se PDF banayein</summary>
+<form id="pdfForm">
+<label for="fFiles">Documents ki photo chunein (ek ya zyada)<input id="fFiles" type="file" accept="image/*" multiple></label>
+<button type="submit">PDF banayein</button>
+<p class="tmsg" id="fMsg">Har photo ek page banegi. Ek baar me 20 tak.</p>
+<button type="button" id="fSave" hidden>PDF save karein</button>
+</form>
+</details>
+</div>
+</section>
+
+
+<div id="empty" class="empty" hidden>इस खोज के लिए कोई नतीजा नहीं मिला। कोई दूसरा शब्द आज़माएँ।</div>
+<div id="grid" class="grid"></div>
+
+<section id="contact" class="contact" hidden><h2 class="sname">Maurya Cyber Cafe</h2><p id="cPhone"></p><p id="cMail"></p><p id="cSocial"></p><p id="cAddr"></p></section>
+
+<p class="note"><b>अस्वीकरण (Disclaimer):</b> <span class="sname">Maurya Cyber Cafe</span> एक निजी सूचना एवं सहायता सेवा है, यह किसी सरकारी विभाग की आधिकारिक वेबसाइट नहीं है। यहाँ दी गई जानकारी आधिकारिक अधिसूचनाओं के आधार पर संकलित की गई है। आवेदन करने से पहले कृपया संबंधित विभाग की आधिकारिक वेबसाइट पर तिथि, पात्रता और शुल्क की पुष्टि अवश्य कर लें।</p>
+</div>
+</main>
+
+<div id="login" class="login" hidden>
+<div class="sh s1" aria-hidden="true"></div><div class="sh s2" aria-hidden="true"></div><div class="sh s3" aria-hidden="true"></div>
+<form id="lockForm" class="card">
+<div class="brand"><div class="mark">MC</div><b class="sname">Maurya Cyber Cafe</b></div>
+<h2 id="lockTitle">Login to Account</h2>
+<p class="help" id="lockHelp"></p>
+<label for="lId">ID *<input id="lId" type="text" autocomplete="username" placeholder="Admin ID" required></label>
+<label for="lPw">Password *<span class="pw"><input id="lPw" type="password" autocomplete="current-password" placeholder="Password" required><button type="button" class="show" id="lShow">Dikhayein</button></span></label>
+<label for="lPw2" id="lPw2Box" hidden>Password dobara likhein *<input id="lPw2" type="password" autocomplete="new-password" placeholder="Password dobara"></label>
+<label for="lCode" id="lCodeBox" hidden>Verification code (6 ank) *<input id="lCode" type="password" inputmode="numeric" maxlength="6" autocomplete="one-time-code" placeholder="6 ank ka code"></label>
+<label class="rem" for="lRem"><input id="lRem" type="checkbox"> Is device par yaad rakhein</label>
+<button type="submit" class="go" id="lBtn">LOGIN</button>
+<p class="msg" id="lMsg" role="alert"></p>
+<button type="button" class="skip" id="lSkip">Site par wapas jayein</button>
+</form>
+</div>
+</script>
+<script type="application/json" id="state">{"updates": [{"id": "uuppscroaro26", "section": "jobs", "text": "UPPSC RO / ARO Recruitment 2026: Online Form, Dates, Fee, Age Limit and Eligibility", "date": "2026-11-20", "dates": "Application Begin: 26/10/2026\nLast Date for Apply Online: 26/11/2026\nPay Exam Fee Last Date: 26/11/2026\nCorrection Date: 03/12/2026\nUPPSC RO / ARO Exam Date: As per Schedule\nAdmit Card Available: Before Exam", "fee": "General / OBC / EWS: 125/-\nSC / ST: 65/-\nPH Candidates: 25/-\nPay the Exam Fee through SBI Mops Debit Card, Credit Card, Net Banking or SBI E-Challan Mode Only", "age": "Age Limit as on: 01/07/2026\nMinimum Age: 21 Years\nMaximum Age: 40 Years\nAge Relaxation Extra as per UPPSC Review Officer / Assistant Review Officer Examination Rules 2026", "desc": "UPPSC ne Samiksha Adhikari (RO) / Sahayak Samiksha Adhikari (ARO) bharti 2026 ke liye online form nikale hain.\n\nYogyata: Zyadatar posts ke liye kisi bhi stream me graduation (kisi manyata prapt university se). Kuch posts ke liye alag yogyata ho sakti hai, post-wise jaankari official notification me dekhein.\n\nForm kaise bharein:\n1. UPPSC par One Time Registration (OTR) zaroori hai. OTR ke baad hi aavedan ho sakta hai.\n2. Aavedan se pehle official notification poori padhein.\n3. 26/10/2026 se 26/11/2026 ke beech online aavedan karein.\n4. Fees SBI Mops (debit card, credit card, net banking) ya SBI E-Challan se hi bharein.\n5. Form ki print aur fees ki raseed save kar lein.", "url": "https://uppsc.up.nic.in/CandidatePages/Notifications.aspx", "notif": "https://uppsc.up.nic.in/CandidatePages/Notifications.aspx", "video": "https://youtu.be/dySDWySRXOs", "site": "https://uppsc.up.nic.in/", "ts": 1795200000000}, {"id": "umwlcuue9mj", "section": "update", "text": "आधार कार्ड में नाम कैसे बदलें | Name correction guide", "desc": "", "date": "2026-11-18", "url": "https://uidai.gov.in/hi/enrolment-and-update", "notif": "", "ts": 1794960029025}, {"id": "umwlcrr9hf5", "section": "update", "text": "जीवन प्रमाण पत्र स्टेटस चेक: घर बैठे ऐसे करें", "desc": "", "date": "2026-11-18", "url": "https://dc.crsorgi.gov.in/crs/", "notif": "", "ts": 1794959884997}], "quick": [{"id": "d1", "text": "UPSSSC 10+2 Lower PCS Apply Online", "color": "#1c2cc9", "url": ""}, {"id": "d2", "text": "Railway NTPC 10+2 Level Apply Online", "color": "#d95300", "url": ""}, {"id": "d3", "text": "Railway Station Master Apply Online", "color": "#a80000", "url": ""}, {"id": "d4", "text": "AEES Teaching Post 2026 Apply Online", "color": "#e02e00", "url": ""}, {"id": "d5", "text": "UP Scholarship 2026 Apply Online", "color": "#006400", "url": ""}, {"id": "d6", "text": "UP TGT Teacher 2026 Apply Online", "color": "#c71f9d", "url": ""}, {"id": "d7", "text": "Bihar STET 2026 Admit Card", "color": "#1a6fd6", "url": ""}, {"id": "qmwlct7jz5o", "text": "UPSSSC 10+2 Lower PCS Apply Online", "url": "https://upsssc.gov.in/", "color": "#1a6fd6"}, {"id": "qmwlcwvx1oy", "text": "Railway Station Master Apply Online", "url": "https://www.rrbapply.gov.in/#/auth/landing", "color": "#1a6fd6"}, {"id": "qmwmkhun8nj", "text": "UPSSSC 10+2 Lower PCS Apply Online", "url": "", "color": "#1a6fd6"}, {"id": "qmwmki97dtu", "text": "UPSSSC 10+2 Lower PCS Apply Online", "url": "https://upsssc.gov.in/", "color": "#1a6fd6"}, {"id": "qmwmvl8ilg8", "text": "Group D Result 2026: Score Card, Merit List and Cut Off", "url": "https://rank.qmaths.in/results/rrb/group-d-08-2024-result-pet-shortlist", "color": "#1a6fd6"}], "auth": {"id": "ADMIN", "salt": "smwlrzpxzj1", "hash": "8dc0ce1a5fa35bcdf3fadf04b0ba8494e24c3d0f55a55c8d60190128b12b715a"}, "logo": "data:image/jpeg;base64,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", "settings": {"phone": "9608950277", "email": "abhishekmauryabbu960@gmail.com"}}</script>
+<script id="code">(function(){
+var PRE='<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>\n';
+var HEAD='<title>Maurya Cyber Cafe ADMIN</title>\n<meta name="claude:viewport-fit-sides" content="cover">\n<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;600;700&display=swap">\n';
+var SUF='\n</body></html>';
+var $=function(id){return document.getElementById(id)};
+
+$('app').innerHTML=$('markup').textContent;
+
+var STATE;
+try{STATE=JSON.parse($('state').textContent)}catch(e){STATE={}}
+if(!STATE||typeof STATE!=='object')STATE={};
+STATE.updates=Array.isArray(STATE.updates)?STATE.updates:[];
+STATE.quick=Array.isArray(STATE.quick)?STATE.quick:null;
+var AUTH=(STATE.auth&&STATE.auth.hash)?STATE.auth:null;
+
+var DATA=[
+["update","Latest Update",[
+["आधार कार्ड में नाम कैसे बदलें | Name correction guide","16 Nov 2026"],
+["जीवन प्रमाण पत्र स्टेटस चेक: घर बैठे ऐसे करें","16 Nov 2026"],
+["पुलिस भवन निर्माण निगम में JE की भर्ती, आवेदन शुरू","13 Nov 2026"],
+["Apprentice Recruitment 2026: Online Apply, Eligibility, Age Limit and Stipend","13 Nov 2026"],
+["PM आवास योजना लिस्ट में नाम ऐसे चेक करें","13 Nov 2026"],
+["Post Matric Scholarship 2026-27: आवेदन की अंतिम तारीख़ बढ़ी","10 Nov 2026"]]],
+["jobs","Latest Jobs",[
+["Station Master Recruitment 2026: Apply Online for 1250 Posts, Eligibility and Fees","16 Nov 2026"],
+["Inter Level Recruitment 2026: Apply Online for 1688 Posts, Fees and Last Date","14 Nov 2026"],
+["Air Force Recruitment 2026: Online Apply, Age Limit, Salary and Selection","13 Nov 2026"],
+["JE and MTS Vacancy 2026: Apply for 1260 Posts, Age, Salary and Process","12 Nov 2026"],
+["विधानसभा सहायक भर्ती 2026: 54 पदों के लिए आवेदन, योग्यता और वेतन","09 Nov 2026"],
+["Graduate Level Recruitment 2026: 3548 Vacancies, Notification PDF and Exam Dates","06 Nov 2026"]]],
+["result","Result",[
+["Group D Result 2026: Score Card, Merit List and Cut Off","16 Nov 2026"],
+["ALP Answer Key 2026: Download Response Sheet and Raise Objection","12 Nov 2026"],
+["GDS 2nd Merit List 2026: मेरिट लिस्ट कैसे चेक करें","24 Oct 2026"],
+["GDS 1st Merit List: पोस्ट ऑफिस भर्ती का प्रथम मेरिट लिस्ट जारी","12 Oct 2026"],
+["D.El.Ed Private College Merit List 2026: Allotment Letter Download","05 Oct 2026"]]],
+["admit","Admit Card",[
+["SLET Admit Card 2026: School Librarian Eligibility Test","17 Nov 2026"],
+["Stenographer Admit Card 2026: परीक्षा तिथि जारी, डाउनलोड करें","12 Nov 2026"],
+["Board 12th Dummy Admit Card 2027 जारी, ऐसे डाउनलोड करें","04 Nov 2026"],
+["Board 10th Dummy Admit Card 2027 जारी, ऐसे डाउनलोड करें","04 Nov 2026"],
+["ALP City Intimation Slip 2026: Check Exam City Details","01 Nov 2026"]]],
+["admission","Admission",[
+["Sainik School Admission 2027: सैनिक स्कूल कक्षा 6 और 9 में प्रवेश","16 Nov 2026"],
+["UG Spot Admission 2026-30: Online Apply, Fees and Documents","08 Sep 2026"],
+["District Court Attender Vacancy 2026: 31 पदों पर ऑफलाइन भर्ती","08 Sep 2026"]]],
+["yojana","Sarkari Yojana",[
+["Draft Voter List 2027 कैसे डाउनलोड करें","17 Nov 2026"],
+["Free Coaching Scheme 2027: आवेदन शुरू, JEE और NEET की तैयारी","12 Nov 2026"],
+["Post Matric Scholarship 2026-27: Date, Documents and Apply Process","10 Nov 2026"],
+["पैन कार्ड को आधार से लिंक कैसे करें ऑनलाइन","10 Nov 2026"]]]
+];
+var QDEF=[["UPPSC RO ARO 2026 Apply Online","#7f8a0f"],["UPSSSC 10+2 Lower PCS Apply Online","#1c2cc9"],["Railway NTPC 10+2 Level Apply Online","#d95300"],["Railway Station Master Apply Online","#a80000"],["AEES Teaching Post 2026 Apply Online","#e02e00"],["UP Scholarship 2026 Apply Online","#006400"],["UP TGT Teacher 2026 Apply Online","#c71f9d"],["Bihar STET 2026 Admit Card","#1a6fd6"]];
+
+var ORDER=['result','admit','jobs','update','admission','yojana'];
+DATA.sort(function(a,b){return ORDER.indexOf(a[0])-ORDER.indexOf(b[0])});
+var grid=$('grid'),empty=$('empty'),input=$('q'),quickEl=$('quick'),homeEl=$('home'),detailEl=$('detail');
+var isAdmin=false,artifact=null;
+var MON=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})}
+function fmt(iso){var p=String(iso||'').split('-');return p.length===3?p[2]+' '+MON[+p[1]-1]+' '+p[0]:String(iso||'')}
+function safeUrl(u){return /^https?:\/\//i.test(u||'')?u:''}
+function safeColor(c){return /^#[0-9a-fA-F]{6}$/.test(c||'')?c:'#1a6fd6'}
+function sid(id){return String(id||'').replace(/[^A-Za-z0-9-]/g,'')}
+function secName(id){for(var i=0;i<DATA.length;i++){if(DATA[i][0]===id)return DATA[i][1]}return''}
+function newId(p){return p+Date.now().toString(36)+Math.floor(Math.random()*1296).toString(36)}
+function today(){var d=new Date();return d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2)}
+
+function renderHeadlines(){
+  var items=[],i,k,d,sec;
+  STATE.updates.slice(0,4).forEach(function(u){items.push({t:u.text,pid:sid(u.id)})});
+  ['jobs','update','admit','result'].forEach(function(id){
+    for(i=0;i<DATA.length;i++){if(DATA[i][0]===id){for(k=0;k<2&&items.length<9;k++)items.push({t:DATA[i][2][k][0],pid:'s-'+id+'-'+k})}}
+  });
+  var el=$('hl');if(!el)return;
+  var seen={};items=items.filter(function(x){if(seen[x.t])return false;seen[x.t]=1;return true});
+  el.innerHTML=items.slice(0,8).map(function(x){return '<a href="#post-'+x.pid+'">'+esc(x.t)+'</a>'}).join('<i> || </i>');
+}
+function render(){
+  renderHeadlines();
+  if(typeof renderAdmin==='function')renderAdmin();
+  var q=input.value.trim().toLowerCase(),html='',n=0,total=0;
+  $('intro').hidden=!!q;$('more').hidden=!!q;$('tools').hidden=!!q;
+  DATA.forEach(function(s){
+    var added=STATE.updates.filter(function(d){return d.section===s[0]}).map(function(d){return{t:d.text,date:fmt(d.date),id:d.id,pid:sid(d.id),fresh:true,hay:(d.text+' '+(d.desc||'')+' '+s[1]).toLowerCase()}});
+    var base=s[2].map(function(i,k){return{t:i[0],date:i[1],pid:'s-'+s[0]+'-'+k,hay:(i[0]+' '+s[1]).toLowerCase()}});
+    var items=added.concat(base).filter(function(i){return !q||i.hay.indexOf(q)>-1});
+    if(!items.length)return;
+    n++;total+=items.length;
+    html+='<section class="box" id="'+s[0]+'"><h3>'+esc(s[1])+'<small>'+items.length+' posts</small></h3>'+
+      items.map(function(i){
+        var tag=i.fresh?'<span class="new">NEW</span>':'';
+        var del='';
+        return '<div class="row"><p><span><a href="#post-'+i.pid+'">'+esc(i.t)+'</a>'+tag+'</span></p><time>'+i.date+'</time>'+del+'</div>';
+      }).join('')+'</section>';
+  });
+  grid.innerHTML=html;
+  var qn=q?quickShown().length:0;
+  empty.hidden=n>0||qn>0||!q&&true;
+  if(!q)empty.hidden=true;else empty.hidden=(total+qn)>0;
+  var sc=$('scount');
+  sc.hidden=!q||(total+qn)===0;
+  sc.textContent=q?((total+qn)+' nateeje mile'):'';
+}
+function renderLogo(){
+  var els=document.querySelectorAll('.mark');
+  for(var i=0;i<els.length;i++){
+    if(STATE.logo&&/^data:image\//.test(STATE.logo)){els[i].innerHTML='<img alt="Maurya Cyber Cafe" src="'+esc(STATE.logo)+'">'}
+    else els[i].textContent='MC';
+  }
+  var d=$('logoDel');if(d)d.hidden=!(isAdmin&&STATE.logo);
+}
+var DEFNAME='Maurya Cyber Cafe',DEFTAG='फॉर्म, नौकरी, रिज़ल्ट और योजना की ताज़ा जानकारी';
+function applySettings(){
+  var S=STATE.settings||{},nm=S.name||DEFNAME,tg=S.tag||DEFTAG,i,els;
+  els=document.querySelectorAll('.name,.sname');for(i=0;i<els.length;i++)els[i].textContent=nm;
+  els=document.querySelectorAll('.tag');for(i=0;i<els.length;i++)els[i].textContent=tg;
+  if(/^#[0-9a-fA-F]{6}$/.test(S.color||''))document.documentElement.style.setProperty('--brand',S.color);else document.documentElement.style.removeProperty('--brand');
+  var ph=String(S.phone||'').trim(),ad=String(S.addr||'').trim(),em=String(S.email||'').trim(),box=$('contact');
+  var ig=instaUrl(S.insta),yt=ytUrl(S.yt),soc=[];
+  if(ig)soc.push('<a href="'+esc(ig)+'" target="_blank" rel="noopener">Instagram</a>');
+  if(yt)soc.push('<a href="'+esc(yt)+'" target="_blank" rel="noopener">YouTube</a>');
+  box.hidden=!(ph||ad||em||soc.length);
+  $('cPhone').innerHTML=ph?'Phone: <a href="tel:'+esc(ph.replace(/[^0-9+]/g,''))+'">'+esc(ph)+'</a>':'';
+  $('cMail').innerHTML=(em&&EMAILRE.test(em))?'Email: <a href="mailto:'+esc(em)+'">'+esc(em)+'</a>':'';
+  $('cSocial').innerHTML=soc.length?'Follow karein: '+soc.join(' | '):'';
+  $('cAddr').textContent=ad?'Pata: '+ad:'';
+}
+var EMAILRE=/^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+function instaUrl(v){v=String(v||'').trim();if(!v)return'';if(/^https?:\/\//i.test(v))return v;v=v.replace(/^@/,'');return /^[A-Za-z0-9._]{1,30}$/.test(v)?'https://www.instagram.com/'+v:''}
+function ytUrl(v){v=String(v||'').trim();if(!v)return'';if(/^https?:\/\//i.test(v))return v;v=v.replace(/^@/,'');return /^[A-Za-z0-9._-]{1,60}$/.test(v)?'https://www.youtube.com/@'+v:''}
+function fillSettings(){
+  var S=STATE.settings||{};
+  $('sName').value=S.name||'';$('sTag').value=S.tag||'';$('sPhone').value=S.phone||'';$('sAddr').value=S.addr||'';$('sEmail').value=S.email||'';$('sInsta').value=S.insta||'';$('sYT').value=S.yt||'';$('sColor').value=/^#[0-9a-fA-F]{6}$/.test(S.color||'')?S.color:'#a31d42';
+}
+function quickList(){
+  return STATE.quick?STATE.quick:QDEF.map(function(q,i){return{id:'d'+i,text:q[0],color:q[1],url:''}});
+}
+function quickShown(){
+  var q=input.value.trim().toLowerCase(),l=quickList();
+  return q?l.filter(function(x){return String(x.text||'').toLowerCase().indexOf(q)>-1}):l;
+}
+function renderQuick(){
+  var shown=quickShown();
+  quickEl.hidden=!shown.length;
+  quickEl.innerHTML=shown.map(function(q){
+    var u=safeUrl(q.url),st='background:'+safeColor(q.color),t=esc(q.text);
+    var del='';
+    return u?'<a href="'+esc(u)+'" target="_blank" rel="noopener" style="'+st+'">'+t+del+'</a>':'<a href="#form-'+sid(q.id)+'" style="'+st+'">'+t+del+'</a>';
+  }).join('');
+}
+function findPost(key){
+  var i,k,p,d;
+  for(i=0;i<STATE.updates.length;i++){d=STATE.updates[i];if(sid(d.id)===key)return{cat:secName(d.section),t:d.text,date:fmt(d.date),body:d.desc||'',dates:d.dates||'',fee:d.fee||'',age:d.age||'',url:safeUrl(d.url),notif:safeUrl(d.notif),video:safeUrl(d.video),site:safeUrl(d.site)}}
+  for(i=0;i<DATA.length;i++){for(k=0;k<DATA[i][2].length;k++){if('s-'+DATA[i][0]+'-'+k===key){p=DATA[i][2][k];return{cat:DATA[i][1],t:p[0],date:p[1],body:'',url:'',notif:''}}}}
+  return null;
+}
+function formBox(title){
+  var S=STATE.settings||{},raw=String(S.phone||''),ph=raw.replace(/[^0-9]/g,'');
+  if(ph.length===11&&ph.charAt(0)==='0')ph=ph.slice(1);
+  if(ph.length===10)ph='91'+ph;
+  var msg='Namaste, mujhe is form ke liye madad chahiye: '+title;
+  var h='<div class="formbox"><b>Form bharwana hai?</b><p>Documents lekar cafe aayein ya WhatsApp par bhejein, hum aapka form bhar denge.</p><div class="acts">';
+  if(ph.length>=10)h+='<a class="wa" href="https://wa.me/'+ph+'?text='+encodeURIComponent(msg)+'" target="_blank" rel="noopener">WhatsApp par form bharwayein</a>';
+  var of=officialFor(title);h+='<a class="srch" href="'+(of||('https://www.google.com/search?q='+encodeURIComponent(title+' official apply online')))+'" target="_blank" rel="noopener">'+(of?'Official website kholein':'Official website khojein')+'</a></div>';
+  if(raw.trim())h+='<p class="phn">Phone: '+esc(raw.trim())+'</p>';
+  return h+'</div>';
+}
+function findQuick(key){var l=quickList();for(var i=0;i<l.length;i++){if(sid(l[i].id)===key)return l[i]}return null}
+function infoSec(title,txt){
+  var lines=String(txt||'').split('\n').map(function(l){return l.trim()}).filter(Boolean);
+  if(!lines.length)return'';
+  return '<section class="psec"><h2>'+esc(title)+'</h2><ul>'+lines.map(function(l){
+    var i=l.indexOf(':');
+    return (i>0&&i<45)?'<li><b>'+esc(l.slice(0,i))+':</b> '+esc(l.slice(i+1).trim())+'</li>':'<li>'+esc(l)+'</li>';
+  }).join('')+'</ul></section>';
+}
+var OFFICIAL=[
+[/post matric/i,'https://scholarships.gov.in/'],
+[/आधार कार्ड में नाम/i,'https://myaadhaar.uidai.gov.in/'],
+[/पुलिस भवन/i,'https://uppolice.gov.in/'],
+[/apprentice/i,'https://www.apprenticeshipindia.gov.in/'],
+[/group d result|alp answer key|alp city|response sheet/i,'https://www.rrbcdg.gov.in/'],
+[/station master|inter level|graduate level/i,'https://www.rrbapply.gov.in/'],
+[/je and mts|stenographer/i,'https://ssc.gov.in/'],
+[/gds.*merit|merit list.*gds|पोस्ट ऑफिस/i,'https://indiapostgdsonline.gov.in/'],
+[/dummy admit card/i,'https://upmsp.edu.in/'],
+[/free coaching/i,'https://socialjustice.gov.in/'],
+[/pan कार्ड|pan card|पैन/i,'https://www.incometax.gov.in/iec/foportal/'],
+[/district court/i,'https://districts.ecourts.gov.in/'],
+[/sainik school/i,'https://exams.nta.ac.in/AISSEE/'],
+[/uppsc|ro\s*\/?\s*aro|lower\s*pcs.*uppsc/i,'https://uppsc.up.nic.in/CandidatePages/Notifications.aspx'],
+[/upsssc|lower\s*pcs|\bpet\b/i,'https://upsssc.gov.in/'],
+[/upsc\b|civil services|ias\b/i,'https://upsc.gov.in/'],
+[/railway|rrb|ntpc|station master|group d|\balp\b|rrc/i,'https://www.rrbapply.gov.in/'],
+[/\bssc\b|cgl|chsl|\bmts\b|stenographer/i,'https://ssc.gov.in/'],
+[/gds|post office|dak sevak|india post/i,'https://indiapostgdsonline.gov.in/'],
+[/air force|agniveer|agnipath/i,'https://agnipathvayu.cdac.in/'],
+[/sainik school/i,'https://aissee.nta.nic.in/'],
+[/aees|atomic energy/i,'https://www.aees.gov.in/'],
+[/up scholarship|post matric|scholarship/i,'https://scholarship.up.gov.in/'],
+[/d\.?el\.?ed|deled/i,'https://updeled.gov.in/'],
+[/tgt|pgt|uptet|\bupessc\b/i,'https://upessc.up.gov.in/'],
+[/up police|police bharti|uppbpb/i,'https://uppbpb.gov.in/'],
+[/bihar police|csbc/i,'https://csbc.bihar.gov.in/'],
+[/bpsc/i,'https://www.bpsc.bihar.gov.in/'],
+[/bssc/i,'https://bssc.bihar.gov.in/'],
+[/bihar stet|stet|bihar board|bseb/i,'https://bseb.bihar.gov.in/'],
+[/ctet/i,'https://ctet.nic.in/'],
+[/jee\b/i,'https://jeemain.nta.nic.in/'],
+[/neet/i,'https://neet.nta.nic.in/'],
+[/\bnta\b|cuet/i,'https://nta.ac.in/'],
+[/ibps/i,'https://www.ibps.in/'],
+[/\bsbi\b/i,'https://sbi.co.in/web/careers'],
+[/aadhaar|aadhar|आधार/i,'https://uidai.gov.in/'],
+[/pan card|पैन/i,'https://www.incometax.gov.in/'],
+[/awas|आवास/i,'https://pmaymis.gov.in/'],
+[/voter|मतदाता|election/i,'https://voters.eci.gov.in/'],
+[/jeevan pram|जीवन प्रमाण/i,'https://jeevanpramaan.gov.in/'],
+[/vidhan|विधानसभा/i,'https://uplegisassembly.gov.in/']
+];
+function officialFor(t){t=String(t||'');for(var i=0;i<OFFICIAL.length;i++){if(OFFICIAL[i][0].test(t))return OFFICIAL[i][1]}return''}
+var GUIDE={
+jobs:{docs:['Aadhaar card aur chalu mobile number (OTP ke liye)','Chalu email ID','Passport size photo aur signature (scan, naap notification ke hisaab se)','10th / 12th / graduation ki marksheet aur certificate','Jaati, niwas aur aay praman patra (jahan lagu ho)','Fees ke liye UPI, net banking ya debit / credit card'],
+ steps:['Neeche Important Links me "Apply Online" ke saamne Click Here dabayein.','Pehli baar ho to naya registration karein. ID aur password sambhal kar rakhein.','Login karke naam, pita ka naam, janm tithi aur shaikshik yogyata sahi bharein.','Photo aur signature upload karein.','Category ke hisaab se fees bharein.','Final submit karke form ki print / PDF aur fees ki raseed save kar lein.']},
+result:{docs:['Roll number / registration number','Janm tithi','Admit card (agar poochha jaye)'],
+ steps:['Neeche Important Links me "Apply Online" ya "Official Website" ke saamne Click Here dabayein.','Result ya Score Card wale link par jayein.','Roll number aur janm tithi bharein.','Score Card dekhein aur PDF save ya print kar lein.','Merit ya cut off ho to wo bhi match karein.']},
+admit:{docs:['Registration number / roll number','Janm tithi ya password','Photo ID (Aadhaar, voter ID ya PAN) pariksha ke din ke liye'],
+ steps:['Neeche Important Links me Click Here dabakar official site kholein.','Admit Card ya Call Letter wale link par jayein.','Registration number aur janm tithi bharein.','Admit card download karein. Naam, photo, roll number aur pariksha kendra check karein.','Print nikalkar photo ID ke saath pariksha me le jayein.']},
+admission:{docs:['Aadhaar card aur mobile number','Pichhli class ki marksheet','Photo aur signature','Jaati, niwas aur aay praman patra (jahan lagu ho)','Fees ke liye UPI ya net banking'],
+ steps:['Neeche Important Links me "Apply Online" ke saamne Click Here dabayein.','Registration karein aur login karein.','Student ki jaankari aur marks sahi bharein.','Documents aur photo upload karein.','Fees bharein aur final submit karein.','Form ki print aur raseed save kar lein.']},
+yojana:{docs:['Aadhaar card aur mobile number','Bank passbook (account aur IFSC)','Jaati, niwas aur aay praman patra','Passport size photo','Parivar ID ya ration card (jahan lagu ho)'],
+ steps:['Neeche Important Links me Click Here dabakar official portal kholein.','Naya registration karein ya login karein.','Apni aur parivar ki jaankari sahi bharein.','Zaroori documents upload karein.','Submit karke registration number ya raseed save kar lein.','Aavedan ka status samay-samay par portal par dekhte rahein.']},
+update:{docs:['Aadhaar card aur usse juda mobile number','Jis cheez me badlav ya check karna hai uska praman (document)','Chalu email ID'],
+ steps:['Neeche Important Links me Click Here dabakar official site kholein.','Login karein ya mobile par OTP se verify karein.','Jo jaankari badalni ya dekhni hai wo chunkar bharein.','Zaroori document upload karein.','Submit karke request number (SRN) ya raseed save kar lein.']}
+};
+function guideSec(p,kind){
+  var c=String(p.cat||''),t=String(p.t||'');
+  if(c==='Latest Jobs')return'jobs';if(c==='Result')return'result';if(c==='Admit Card')return'admit';if(c==='Admission')return'admission';if(c==='Sarkari Yojana')return'yojana';if(c==='Latest Update')return'update';
+  if(/admit|call letter/i.test(t))return'admit';if(/result|merit|answer key|score/i.test(t))return'result';if(/scholarship|yojana|awas/i.test(t))return'yojana';
+  return'jobs';
+}
+function guideHtml(p){
+  var g=GUIDE[guideSec(p)];if(!g)return'';
+  var o='<section class="psec"><h2>Form bharne se pehle taiyar rakhein</h2><ul>'+g.docs.map(function(x){return'<li>'+esc(x)+'</li>'}).join('')+'</ul></section>';
+  o+='<section class="psec"><h2>Form kaise bharein (step by step)</h2><ul class="steps">'+g.steps.map(function(x){return'<li>'+esc(x)+'</li>'}).join('')+'</ul></section>';
+  o+='<section class="psec"><h2>Dhyan rakhein</h2><ul><li>Tithi, umar seema, fees aur yogyata ke liye "Download Notification" ke saamne Click Here dabakar official notification zaroor padhein.</li><li>Galat jaankari bharne se form radd ho sakta hai.</li><li>Form khud nahi bhar paa rahe to documents lekar cafe aayein.</li></ul></section>';
+  return o;
+}
+function linksTable(p){
+  var t=p.t||'',g=function(q){return 'https://www.google.com/search?q='+encodeURIComponent(q)};
+  var off=p.site||officialFor(t);
+  var rows=[
+    ['Apply Online',p.url||off,'Click Here',g(t+' apply online official'),'Click Here'],
+    ['How to Fill Form (Video Hindi)',p.video,'Watch Video','https://www.youtube.com/results?search_query='+encodeURIComponent(t+' form kaise bhare'),'Watch Video'],
+    ['Download Notification',p.notif||off,'Click Here',g(t+' notification pdf'),'Click Here'],
+    ['Official Website',off,'Click Here',g(t+' official website'),'Click Here']
+  ];
+  return '<section class="psec"><h2>Some Useful Important Links</h2><div class="ltable">'+rows.map(function(r){
+    var has=!!r[1],href=has?r[1]:r[3];
+    return '<div class="lc lab">'+esc(r[0])+'</div><div class="lc"><a class="lk" href="'+esc(href)+'" target="_blank" rel="noopener">'+(has?r[2]:r[4])+'</a></div>';
+  }).join('')+'</div></section>';
+}
+function showRoute(){
+  var pan=location.hash==='#panel'&&!!artifact;
+  $('admin').hidden=!(pan&&isAdmin);
+  $('login').hidden=!(pan&&!isAdmin);
+  document.querySelector('.hero').hidden=pan;document.querySelector('.bar').hidden=pan;
+  if(pan){homeEl.hidden=true;detailEl.hidden=true;window.scrollTo(0,0);return}
+  var m=/^#(post|form)-([A-Za-z0-9-]+)$/.exec(location.hash||'');
+  if(!m){homeEl.hidden=false;detailEl.hidden=true;return}
+  var p;
+  if(m[1]==='form'){var q=findQuick(m[2]);p=q?{cat:'Form',t:q.text,date:'',body:'',url:'',notif:''}:null}
+  else p=findPost(m[2]);
+  homeEl.hidden=true;detailEl.hidden=false;
+  if(!p){detailEl.innerHTML='<a class="back" href="#home">‹ Wapas jayein</a><h1>Ye page nahi mila</h1><p class="body">Ho sakta hai ise hata diya gaya ho.</p>';return}
+  var html='<a class="back" href="#home">‹ Wapas jayein</a><div class="cat">'+esc(p.cat)+'</div><h1>'+esc(p.t)+'</h1>'+(p.date?'<div class="when">'+esc(p.date)+'</div>':'');
+  html+='<div class="pair">'+infoSec('Important Dates',p.dates)+infoSec('Application Fee',p.fee)+'</div>'+infoSec('Age Limit',p.age);
+  if(p.body)html+='<section class="psec"><h2>Vacancy / Poori Jaankari</h2><div class="body">'+esc(p.body)+'</div></section>';
+  html+=guideHtml(p)+linksTable(p)+formBox(p.t);
+  detailEl.innerHTML=html;
+  window.scrollTo(0,0);
+}
+
+function buildDoc(){
+  var X='</'+'script>';
+  var json=JSON.stringify(STATE).replace(/</g,'\\u003c');
+  return PRE+HEAD+'<style id="css">'+$('css').textContent+'</style>\n<div id="app"></div>\n'+
+    '<script type="text/html" id="markup">'+$('markup').textContent+X+'\n'+
+    '<script type="application/json" id="state">'+json+X+'\n'+
+    '<script id="code">'+$('code').textContent+X+SUF;
+}
+function change(mutate,msgEl,okText){
+  var before=JSON.stringify(STATE);
+  mutate();
+  render();renderQuick();
+  msgEl.textContent='Save ho raha hai... kuch second me page naye update ke saath dobara khulega.';
+  return artifact.publish(buildDoc()).then(function(){msgEl.textContent=okText}).catch(function(e){
+    STATE=JSON.parse(before);render();renderQuick();
+    var c=e&&e.code;
+    msgEl.textContent=c==='conflict'?'Kisi aur ne abhi page badla hai, page dobara khul raha hai. Phir se koshish karein.':(c==='not_writer'||c==='not_granted')?'Aapke paas badalne ki ijazat nahi hai.':'Save nahi ho paya. Dobara koshish karein.';
+  });
+}
+function armed(b,label){
+  if(b.dataset.arm==='1')return true;
+  b.dataset.arm='1';b.textContent='Pakka?';
+  setTimeout(function(){if(b.isConnected){b.dataset.arm='';b.textContent=label}},4000);
+  return false;
+}
+
+function onSearch(){render();renderQuick()}
+input.addEventListener('input',onSearch);
+$('sform').addEventListener('submit',function(e){e.preventDefault();onSearch();input.blur();var t=$('sform');if(t.scrollIntoView)t.scrollIntoView({block:'start'})});
+window.addEventListener('hashchange',showRoute);
+var aSec=$('aSec'),aDate=$('aDate'),aText=$('aText'),aDesc=$('aDesc'),aUrl=$('aUrl'),aNotif=$('aNotif'),aMsg=$('aMsg'),qMsg=$('qMsg');
+aSec.innerHTML=DATA.map(function(s){return '<option value="'+s[0]+'">'+esc(s[1])+'</option>'}).join('');
+aDate.value=today();
+var adminTab='upd',editId=null;
+function setTab(t){
+  adminTab=t;
+  var els=document.querySelectorAll('#admin [data-tab]'),i;
+  for(i=0;i<els.length;i++)els[i].hidden=els[i].dataset.tab!==t;
+  var bs=document.querySelectorAll('#adminTabs button');
+  for(i=0;i<bs.length;i++){var on=bs[i].dataset.t===t;bs[i].classList.toggle('on',on);bs[i].setAttribute('aria-pressed',on?'true':'false')}
+}
+function renderAdmin(){
+  if(!isAdmin)return;
+  var n=STATE.updates.length,qn=quickList().length;
+  $('aStats').textContent=n+' update | '+qn+' button';
+  $('myList').innerHTML=n?STATE.updates.map(function(u){return '<div class="myrow"><div class="mt"><b>'+esc(u.text)+'</b><span>'+esc(secName(u.section))+' · '+esc(fmt(u.date))+'</span></div><div class="mb"><a href="#post-'+sid(u.id)+'">Dekhein</a><button type="button" data-edit="'+esc(u.id)+'">Badlein</button><button type="button" class="mdel" data-mdel="'+esc(u.id)+'">Hatayein</button></div></div>'}).join(''):'<p class="msg">Abhi aapne koi update nahi joda. "Naya Update" tab se jodein.</p>';
+  $('myQuick').innerHTML=quickList().map(function(q){return '<div class="myrow"><div class="mt"><b>'+esc(q.text||'(bina naam)')+'</b><span>'+(safeUrl(q.url)?esc(q.url):'Seedha link nahi, form page khulega')+'</span></div><div class="mb"><button type="button" class="mdel" data-qdel="'+esc(q.id)+'">Hatayein</button></div></div>'}).join('');
+  setTab(adminTab);
+}
+$('myQuick').addEventListener('click',function(e){
+  var b=e.target.closest&&e.target.closest('button');if(!b||!b.dataset.qdel)return;
+  if(!artifact||!armed(b,'Hatayein'))return;
+  var id=b.dataset.qdel;
+  change(function(){STATE.quick=quickList().filter(function(q){return q.id!==id})},qMsg,'Button hat gaya.');
+});
+function resetEdit(){editId=null;$('addForm').reset();aDate.value=today();$('aBtn').textContent='Update jodein';$('aCancel').hidden=true}
+$('adminTabs').addEventListener('click',function(e){var b=e.target.closest&&e.target.closest('button');if(b)setTab(b.dataset.t)});
+$('aCancel').addEventListener('click',function(){resetEdit();aMsg.textContent='Badlav chhod diya.'});
+$('myList').addEventListener('click',function(e){
+  var b=e.target.closest&&e.target.closest('button');if(!b)return;
+  if(b.dataset.edit){
+    var u=STATE.updates.filter(function(x){return x.id===b.dataset.edit})[0];if(!u)return;
+    editId=u.id;aSec.value=u.section;aDate.value=u.date||today();aText.value=u.text||'';$('aDates').value=u.dates||'';$('aFee').value=u.fee||'';$('aAge').value=u.age||'';aDesc.value=u.desc||'';aUrl.value=u.url||'';$('aVideo').value=u.video||'';aNotif.value=u.notif||'';$('aSite').value=u.site||'';
+    $('aBtn').textContent='Badlav save karein';$('aCancel').hidden=false;aMsg.textContent='Aap ye update badal rahe hain. Badalkar "Badlav save karein" dabayein.';
+    setTab('upd');$('addForm').scrollIntoView({block:'start'});
+  }else if(b.dataset.mdel){
+    if(!artifact||!armed(b,'Hatayein'))return;
+    var id=b.dataset.mdel;
+    change(function(){STATE.updates=STATE.updates.filter(function(d){return d.id!==id})},aMsg,'Update hat gaya.');
+  }
+});
+
+grid.addEventListener('click',function(e){
+  var b=e.target.closest&&e.target.closest('.del');
+  if(!b||!artifact||!armed(b,'Hatayein'))return;
+  var id=b.dataset.id;
+  change(function(){STATE.updates=STATE.updates.filter(function(d){return d.id!==id})},aMsg,'Update hat gaya.');
+});
+quickEl.addEventListener('click',function(e){
+  var b=e.target.closest&&e.target.closest('.qdel');
+  if(!b)return;
+  e.preventDefault();e.stopPropagation();
+  if(!artifact||!armed(b,'Hatayein'))return;
+  var id=b.dataset.qid;
+  change(function(){STATE.quick=quickList().filter(function(q){return q.id!==id})},qMsg,'Button hat gaya.');
+});
+$('addForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  if(!artifact)return;
+  var u=aUrl.value.trim(),nf=aNotif.value.trim(),vd=$('aVideo').value.trim(),st=$('aSite').value.trim();
+  if((u&&!safeUrl(u))||(nf&&!safeUrl(nf))||(vd&&!safeUrl(vd))||(st&&!safeUrl(st))){aMsg.textContent='Link https:// se shuru hona chahiye.';return}
+  var rec={id:editId||newId('u'),section:aSec.value,text:aText.value.trim(),desc:aDesc.value.trim(),dates:$('aDates').value.trim(),fee:$('aFee').value.trim(),age:$('aAge').value.trim(),date:aDate.value||today(),url:u,notif:nf,video:vd,site:st,ts:Date.now()},wasEdit=!!editId;
+  change(function(){
+    if(wasEdit){STATE.updates=STATE.updates.map(function(d){return d.id===rec.id?rec:d})}else STATE.updates.unshift(rec);
+  },aMsg,wasEdit?'Badlav save ho gaya.':'Update jud gaya.');
+});
+$('qForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  if(!artifact)return;
+  var u=$('qUrl').value.trim();
+  if(u&&!safeUrl(u)){qMsg.textContent='Link https:// se shuru hona chahiye.';return}
+  change(function(){
+    STATE.quick=quickList().concat([{id:newId('q'),text:$('qText').value.trim(),url:u,color:$('qColor').value}]);
+  },qMsg,'Button jud gaya.');
+});
+
+render();renderQuick();showRoute();renderLogo();applySettings();
+(function(){var n=0,t=0;document.querySelector('.hero').addEventListener('click',function(){var now=Date.now();n=(now-t<1500)?n+1:1;t=now;if(n>=5){n=0;if(artifact)location.hash='#panel'}})})();
+
+var dl=null;
+function saveFile(name,blob,msgEl){
+  if(!dl){msgEl.textContent='Is device par save ka option nahi hai. Photo ko dabakar rakhein aur "Save image" chunein.';return}
+  dl.save({filename:name,data:blob}).then(function(){msgEl.textContent='Save ho gaya.'}).catch(function(e){
+    var c=e&&e.code;msgEl.textContent=c==='declined'?'Save nahi kiya gaya.':'Save nahi ho paya. Dobara koshish karein.';
+  });
+}
+function loadImg(file){
+  return new Promise(function(res,rej){
+    var u=URL.createObjectURL(file),im=new Image();
+    im.onload=function(){URL.revokeObjectURL(u);res(im)};
+    im.onerror=function(){URL.revokeObjectURL(u);rej(new Error('img'))};
+    im.src=u;
+  });
+}
+function blobOf(c,q){return new Promise(function(r){c.toBlob(r,'image/jpeg',q)})}
+var PRESETS={p1:[200,230],p2:[140,60],p3:[413,531],p4:[0,0]};
+var pPreset=$('pPreset'),pW=$('pW'),pH=$('pH'),pMsg=$('pMsg'),pOut=$('pOut'),pBlob=null;
+function presetChange(){
+  var v=PRESETS[pPreset.value],cust=pPreset.value==='p4';
+  if(!cust){pW.value=v[0];pH.value=v[1]}
+  pW.disabled=!cust;pH.disabled=!cust;
+}
+pPreset.addEventListener('change',presetChange);presetChange();
+$('photoForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  var f=$('pFile').files&&$('pFile').files[0];
+  var W=Math.round(+pW.value),H=Math.round(+pH.value),maxKB=+$('pKB').value;
+  if(!f){pMsg.textContent='Pehle photo chunein.';return}
+  if(!(W>=20&&H>=20&&W<=4000&&H<=4000)){pMsg.textContent='Chaudai aur lambai 20 se 4000 ke beech likhein.';return}
+  if(!(maxKB>=5&&maxKB<=2000)){pMsg.textContent='Size 5 se 2000 KB ke beech likhein.';return}
+  pMsg.textContent='Taiyar ho raha hai...';pOut.hidden=true;
+  loadImg(f).then(function(im){
+    var c=document.createElement('canvas');c.width=W;c.height=H;
+    var x=c.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,W,H);
+    var s=Math.max(W/im.width,H/im.height),dw=im.width*s,dh=im.height*s;
+    x.drawImage(im,(W-dw)/2,(H-dh)/2,dw,dh);
+    var lo=0.1,hi=0.95,best=null,i;
+    return blobOf(c,hi).then(function(b){
+      if(b.size/1024<=maxKB)return b;
+      return blobOf(c,lo).then(function(b0){
+        best=b0;
+        var step=function(n){
+          if(n>=7)return best;
+          var mid=(lo+hi)/2;
+          return blobOf(c,mid).then(function(bm){
+            if(bm.size/1024<=maxKB){best=bm;lo=mid}else hi=mid;
+            return step(n+1);
+          });
+        };
+        return step(0);
+      });
+    });
+  }).then(function(b){
+    pBlob=b;
+    var kb=(b.size/1024).toFixed(1),ok=b.size/1024<=maxKB;
+    $('pImg').src=URL.createObjectURL(b);
+    $('pInfo').textContent=W+' x '+H+' px, '+kb+' KB'+(ok?'':' (maang se zyada hai, chhoti dimension chunein)');
+    pOut.hidden=false;pMsg.textContent=ok?'Photo taiyar hai.':'Photo taiyar hai par size abhi bhi zyada hai.';
+  }).catch(function(){pMsg.textContent='Ye photo khul nahi paayi. Dusri photo chunein.'});
+});
+$('pSave').addEventListener('click',function(){if(pBlob)saveFile('photo-'+Date.now().toString(36)+'.jpg',pBlob,pMsg)});
+
+var dobEl=$('dob'),onEl=$('ageOn'),ageOut=$('ageOut');
+onEl.value=today();
+function calcAge(){
+  var a=dobEl.value,b=onEl.value;
+  if(!a||!b){ageOut.textContent='';return}
+  var d1=new Date(a+'T00:00:00'),d2=new Date(b+'T00:00:00');
+  if(isNaN(d1)||isNaN(d2)){ageOut.textContent='';return}
+  if(d2<d1){ageOut.textContent='Janm ki taareekh aaj ki taareekh se pehle honi chahiye.';return}
+  var y=d2.getFullYear()-d1.getFullYear(),m=d2.getMonth()-d1.getMonth(),d=d2.getDate()-d1.getDate();
+  if(d<0){m--;d+=new Date(d2.getFullYear(),d2.getMonth(),0).getDate()}
+  if(m<0){y--;m+=12}
+  var days=Math.round((d2-d1)/86400000);
+  ageOut.textContent='Umar: '+y+' saal, '+m+' mahine, '+d+' din ('+days+' din)';
+}
+dobEl.addEventListener('input',calcAge);onEl.addEventListener('input',calcAge);
+
+var fMsg=$('fMsg'),fBlob=null;
+function toJpeg(file){
+  return loadImg(file).then(function(im){
+    var M=1600,s=Math.min(1,M/Math.max(im.width,im.height)),w=Math.max(1,Math.round(im.width*s)),h=Math.max(1,Math.round(im.height*s));
+    var c=document.createElement('canvas');c.width=w;c.height=h;
+    var x=c.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,w,h);x.drawImage(im,0,0,w,h);
+    return blobOf(c,0.85).then(function(b){return b.arrayBuffer().then(function(ab){return{w:w,h:h,bytes:new Uint8Array(ab)}})});
+  });
+}
+function pad10(n){var s=String(n);while(s.length<10)s='0'+s;return s}
+function buildPdf(imgs){
+  var enc=new TextEncoder(),parts=[],off=0,xref=[],n=imgs.length,i,k;
+  function push(x){var b=typeof x==='string'?enc.encode(x):x;parts.push(b);off+=b.length}
+  function obj(id,body){xref[id]=off;push(id+' 0 obj\n'+body+'\nendobj\n')}
+  push('%PDF-1.4\n');
+  obj(1,'<< /Type /Catalog /Pages 2 0 R >>');
+  var kids=[];for(i=0;i<n;i++)kids.push((3+3*i)+' 0 R');
+  obj(2,'<< /Type /Pages /Kids ['+kids.join(' ')+'] /Count '+n+' >>');
+  for(i=0;i<n;i++){
+    var im=imgs[i],land=im.w>im.h,PW=land?842:595,PH=land?595:842,m=24;
+    var s=Math.min((PW-2*m)/im.w,(PH-2*m)/im.h),dw=im.w*s,dh=im.h*s,x=(PW-dw)/2,y=(PH-dh)/2;
+    obj(3+3*i,'<< /Type /Page /Parent 2 0 R /MediaBox [0 0 '+PW+' '+PH+'] /Contents '+(4+3*i)+' 0 R /Resources << /XObject << /Im0 '+(5+3*i)+' 0 R >> >> >>');
+    var c='q '+dw.toFixed(2)+' 0 0 '+dh.toFixed(2)+' '+x.toFixed(2)+' '+y.toFixed(2)+' cm /Im0 Do Q';
+    obj(4+3*i,'<< /Length '+c.length+' >>\nstream\n'+c+'\nendstream');
+    xref[5+3*i]=off;
+    push((5+3*i)+' 0 obj\n<< /Type /XObject /Subtype /Image /Width '+im.w+' /Height '+im.h+' /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length '+im.bytes.length+' >>\nstream\n');
+    push(im.bytes);push('\nendstream\nendobj\n');
+  }
+  var size=3+3*n,xo=off;
+  push('xref\n0 '+size+'\n0000000000 65535 f \n');
+  for(k=1;k<size;k++)push(pad10(xref[k])+' 00000 n \n');
+  push('trailer\n<< /Size '+size+' /Root 1 0 R >>\nstartxref\n'+xo+'\n%%EOF');
+  return new Blob(parts,{type:'application/pdf'});
+}
+$('pdfForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  var files=Array.prototype.slice.call($('fFiles').files||[]);
+  if(!files.length){fMsg.textContent='Pehle ek ya zyada photo chunein.';return}
+  if(files.length>20){fMsg.textContent='Ek baar me 20 photo tak chunein.';return}
+  fMsg.textContent='PDF ban rahi hai...';$('fSave').hidden=true;
+  var out=[],chain=Promise.resolve();
+  files.forEach(function(f){chain=chain.then(function(){return toJpeg(f)}).then(function(r){out.push(r)})});
+  chain.then(function(){
+    fBlob=buildPdf(out);
+    fMsg.textContent='PDF taiyar: '+out.length+' page, '+(fBlob.size/1024).toFixed(0)+' KB.';
+    $('fSave').hidden=false;
+  }).catch(function(){fMsg.textContent='Koi photo khul nahi paayi. Sirf photo (JPG ya PNG) chunein.'});
+});
+$('fSave').addEventListener('click',function(){if(fBlob)saveFile('documents-'+Date.now().toString(36)+'.pdf',fBlob,fMsg)});
+
+function hexHash(salt,id,pw){
+  var data=new TextEncoder().encode(salt+'|'+id.toLowerCase()+'|'+pw);
+  return crypto.subtle.digest('SHA-256',data).then(function(buf){
+    return Array.prototype.map.call(new Uint8Array(buf),function(b){return('0'+b.toString(16)).slice(-2)}).join('');
+  });
+}
+function unlocked(){try{return localStorage.getItem('mcc_admin')==='1'||sessionStorage.getItem('mcc_admin')==='1'}catch(e){return false}}
+function setUnlocked(on,remember){try{localStorage.removeItem('mcc_admin');sessionStorage.removeItem('mcc_admin');if(on)(remember?localStorage:sessionStorage).setItem('mcc_admin','1')}catch(e){}}
+function showAdmin(on){
+  isAdmin=on;
+  if(on)fillSettings();
+  showRoute();
+  renderLogo();
+  if(!on)resetLock();
+  render();renderQuick();
+}
+var skipped=false,stage=1,remMem=false;
+function lockEls(){return[$('lId').closest('label'),$('lPw').closest('label'),$('lRem').closest('label')]}
+function resetLock(){
+  if(!AUTH)return;
+  stage=1;lockEls().forEach(function(l){l.hidden=false});$('lCodeBox').hidden=true;$('lCode').value='';
+  $('lId').required=true;$('lPw').required=true;$('lCode').required=false;
+  $('lockTitle').textContent='Login to Account';$('lockHelp').textContent='Admin panel kholne ke liye ID aur password daalein.';$('lBtn').textContent='LOGIN';
+}
+function goStage2(){
+  stage=2;lockEls().forEach(function(l){l.hidden=true});$('lCodeBox').hidden=false;
+  $('lId').required=false;$('lPw').required=false;$('lCode').required=true;
+  $('lockTitle').textContent='2-Step Verification';$('lockHelp').textContent='Password sahi hai. Ab apna 6 ank ka verification code daalein.';$('lBtn').textContent='VERIFY';
+  $('lMsg').textContent='';$('lCode').focus();
+}
+function setupLock(){
+  var lm=$('lMsg');
+  if(!(window.crypto&&crypto.subtle)){showAdmin(true);return}
+  if(!AUTH){
+    $('lockTitle').textContent='Admin ID aur password banayein';
+    $('lockHelp').textContent='Pehli baar apna ID aur password chunein (password kam se kam 6 akshar). Ise yaad rakhein.';
+    $('lPw2Box').hidden=false;$('lPw2').required=true;$('lBtn').textContent='SAVE KAREIN';$('lPw').autocomplete='new-password';
+  }else{
+    $('lockTitle').textContent='Login to Account';
+    $('lockHelp').textContent='Admin panel kholne ke liye ID aur password daalein.';
+  }
+  showAdmin(!!AUTH&&unlocked());
+  $('setForm').addEventListener('submit',function(e){
+    e.preventDefault();
+    var ph=$('sPhone').value.trim();
+    if(ph&&!/^[0-9+\-\s()]{5,20}$/.test(ph)){$('setMsg').textContent='Phone number me sirf ank likhein.';return}
+    var em=$('sEmail').value.trim(),ig=$('sInsta').value.trim(),yt=$('sYT').value.trim();
+    if(em&&!EMAILRE.test(em)){$('setMsg').textContent='Email sahi nahi hai. Jaise: naam@gmail.com';return}
+    if(ig&&!instaUrl(ig)){$('setMsg').textContent='Instagram ID sahi nahi hai. Jaise: @aapka_id';return}
+    if(yt&&!ytUrl(yt)){$('setMsg').textContent='YouTube channel sahi nahi hai. Jaise: @channel ya poora link';return}
+    change(function(){STATE.settings={name:$('sName').value.trim(),tag:$('sTag').value.trim(),phone:ph,email:em,insta:ig,yt:yt,addr:$('sAddr').value.trim(),color:$('sColor').value}},$('setMsg'),'Settings save ho gayi.');
+  });
+  $('setReset').addEventListener('click',function(){change(function(){var S=STATE.settings||{};STATE.settings={name:'',tag:'',phone:S.phone||'',email:S.email||'',insta:S.insta||'',yt:S.yt||'',addr:S.addr||'',color:''}},$('setMsg'),'Ho gaya.')});
+  $('pwForm').addEventListener('submit',function(e){
+    e.preventDefault();
+    var pm=$('pwMsg'),nid=$('nId').value.trim(),np=$('nPw').value;
+    if(!AUTH){pm.textContent='Pehle login page par ID aur password banayein.';return}
+    if(!nid||np.length<6){pm.textContent='Naya ID likhein aur password kam se kam 6 akshar ka rakhein.';return}
+    if(np!==$('nPw2').value){pm.textContent='Naye password dono jagah alag hain.';return}
+    hexHash(AUTH.salt,AUTH.id,$('cpPw').value).then(function(h0){
+      if(h0!==AUTH.hash){pm.textContent='Abhi ka password galat hai.';return}
+      var salt=newId('s');
+      return hexHash(salt,nid,np).then(function(h){change(function(){STATE.auth={id:nid,salt:salt,hash:h,pin:AUTH.pin}},pm,'ID aur password badal gaya.')});
+    });
+  });
+  $('pinForm').addEventListener('submit',function(e){
+    e.preventDefault();
+    var m=$('pinMsg'),c=$('pnCode').value.trim();
+    if(!AUTH){m.textContent='Pehle ID aur password banayein.';return}
+    if(!/^[0-9]{6}$/.test(c)){m.textContent='Code 6 ank ka hona chahiye.';return}
+    if(c!==$('pnCode2').value.trim()){m.textContent='Dono code alag hain.';return}
+    hexHash(AUTH.salt,AUTH.id,$('pnPw').value).then(function(h0){
+      if(h0!==AUTH.hash){m.textContent='Password galat hai.';return}
+      var salt=newId('p');
+      return hexHash(salt,'pin',c).then(function(h){change(function(){STATE.auth={id:AUTH.id,salt:AUTH.salt,hash:AUTH.hash,pin:{salt:salt,hash:h}}},m,'2-step code lag gaya.')});
+    });
+  });
+  $('pinOff').addEventListener('click',function(){
+    var m=$('pinMsg');if(!AUTH)return;
+    hexHash(AUTH.salt,AUTH.id,$('pnPw').value).then(function(h0){
+      if(h0!==AUTH.hash){m.textContent='Code hatane ke liye sahi password daalein.';return}
+      change(function(){STATE.auth={id:AUTH.id,salt:AUTH.salt,hash:AUTH.hash}},m,'2-step code hat gaya.');
+    });
+  });
+  $('logoForm').addEventListener('submit',function(e){
+    e.preventDefault();
+    var f=$('logoFile').files&&$('logoFile').files[0],lmsg=$('logoMsg');
+    if(!f){lmsg.textContent='Pehle photo chunein.';return}
+    if(!/^image\//.test(f.type)){lmsg.textContent='Ye photo nahi hai.';return}
+    var img=new Image(),url=URL.createObjectURL(f);
+    img.onload=function(){
+      var S=256,c=document.createElement('canvas');c.width=S;c.height=S;
+      var x=c.getContext('2d'),m=Math.min(img.width,img.height),sx=(img.width-m)/2,sy=(img.height-m)/2;
+      x.drawImage(img,sx,sy,m,m,0,0,S,S);
+      URL.revokeObjectURL(url);
+      var data=c.toDataURL(f.type==='image/png'?'image/png':'image/jpeg',0.85);
+      change(function(){STATE.logo=data},lmsg,'Photo lag gayi.');
+    };
+    img.onerror=function(){URL.revokeObjectURL(url);lmsg.textContent='Ye photo khul nahi paayi. Dusri photo chunein.'};
+    img.src=url;
+  });
+  $('logoDel').addEventListener('click',function(){change(function(){delete STATE.logo},$('logoMsg'),'Photo hat gayi.')});
+  $('lShow').addEventListener('click',function(){var p=$('lPw'),h=p.type==='password';p.type=h?'text':'password';this.textContent=h?'Chhupayein':'Dikhayein'});
+  $('lSkip').addEventListener('click',function(){location.hash='#home'});
+  $('lockForm').addEventListener('submit',function(e){
+    e.preventDefault();
+    if(stage===2&&AUTH&&AUTH.pin){
+      hexHash(AUTH.pin.salt,'pin',$('lCode').value.trim()).then(function(h){
+        if(h===AUTH.pin.hash){setUnlocked(true,remMem);lm.textContent='';$('lPw').value='';$('lCode').value='';showAdmin(true)}
+        else{lm.textContent='Code galat hai.';$('lCode').value=''}
+      });
+      return;
+    }
+    var id=$('lId').value.trim(),pw=$('lPw').value,rem=$('lRem').checked;
+    if(!AUTH){
+      if(pw.length<6){lm.textContent='Password kam se kam 6 akshar ka rakhein.';return}
+      if(pw!==$('lPw2').value){lm.textContent='Dono password alag hain.';return}
+      var salt=newId('s');
+      hexHash(salt,id,pw).then(function(h){
+        change(function(){STATE.auth={id:id,salt:salt,hash:h}},lm,'');
+      });
+    }else{
+      hexHash(AUTH.salt,id,pw).then(function(h){
+        if(id.toLowerCase()===String(AUTH.id).toLowerCase()&&h===AUTH.hash){
+          if(AUTH.pin&&AUTH.pin.hash){remMem=rem;goStage2()}
+          else{setUnlocked(true,rem);lm.textContent='';$('lPw').value='';showAdmin(true)}
+        }
+        else lm.textContent='ID ya password galat hai.';
+      });
+    }
+  });
+  $('logout').addEventListener('click',function(){setUnlocked(false);showAdmin(false);location.hash='#home'});
+}
+
+(async function(){
+  try{
+    if(!window.claude||!claude.use)return;
+    try{dl=await claude.use('downloads')}catch(e){}
+    var user=await claude.use('user');
+    var art=await claude.use('artifact');
+    if(!art||!user||!user.canEdit||!user.canEdit())return;
+    artifact=art;
+    setupLock();
+  }catch(err){}
+})();
+})();</script>
+
+</body></html>
